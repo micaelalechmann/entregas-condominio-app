@@ -1,7 +1,7 @@
 package classes;
 
 public class Operador {
-  private String nome;
+  private final String nome;
 
   public Operador(String nome) {
     this.nome = nome;
