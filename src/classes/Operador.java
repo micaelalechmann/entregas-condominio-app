@@ -13,7 +13,7 @@ public class Operador {
     StringBuilder sb = new StringBuilder();
 
     for (String s : iniciaisNome) {
-      sb.append(s);
+      sb.append(s.charAt(0));
     }
 
     return sb.toString();
