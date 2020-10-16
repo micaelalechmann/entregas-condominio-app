@@ -57,7 +57,7 @@ public class Entrega {
     if(moradorQueVaiRetirar.getNroApartamento() != this.nroApartamentoDestinatario)
       throw new NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException(this.nroApartamentoDestinatario);
 
-    dataRetirada = Calendar.getInstance();
-    moradorQueRetirou = moradorQueVaiRetirar;
+    this.dataRetirada = Calendar.getInstance();
+    this.moradorQueRetirou = moradorQueVaiRetirar;
   }
 }
