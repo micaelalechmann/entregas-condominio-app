@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec526180-2ce9-4514-8d07-675b5d1d77bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/classes/Morador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/classes/MoradorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +12,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,8 +59,11 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="exceptions" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoradorTest">
+  <component name="RunManager" selected="JUnit.tests in entregas-condominio-app">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -74,7 +75,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoradorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EntregaTest.deveRetornarONumeroDoApartamentoDaEntregaCorretamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="entregas-condominio-app" />
       <extension name="coverage">
         <pattern>
@@ -83,29 +84,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="classes" />
-      <option name="MAIN_CLASS_NAME" value="classes.MoradorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoradorTest.deveCriarMoradorCorretamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="entregas-condominio-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="classes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="classes" />
-      <option name="MAIN_CLASS_NAME" value="classes.MoradorTest" />
-      <option name="METHOD_NAME" value="deveCriarMoradorCorretamente" />
+      <option name="MAIN_CLASS_NAME" value="classes.EntregaTest" />
+      <option name="METHOD_NAME" value="deveRetornarONumeroDoApartamentoDaEntregaCorretamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OperadorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EntregaTest.deveSerPossivelRetirarUmaEntregaQuandoNumeroDoApartamentoDoMoradorQueVaiRetiraForIgualAoNumeroDoApartamentoDeEntrega" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="entregas-condominio-app" />
       <extension name="coverage">
         <pattern>
@@ -114,29 +100,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="classes" />
-      <option name="MAIN_CLASS_NAME" value="classes.OperadorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OperadorTest.deveCriarOperadorComAsIniciaisMS" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="entregas-condominio-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="classes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="classes" />
-      <option name="MAIN_CLASS_NAME" value="classes.OperadorTest" />
-      <option name="METHOD_NAME" value="deveCriarOperadorComAsIniciaisMS" />
+      <option name="MAIN_CLASS_NAME" value="classes.EntregaTest" />
+      <option name="METHOD_NAME" value="deveSerPossivelRetirarUmaEntregaQuandoNumeroDoApartamentoDoMoradorQueVaiRetiraForIgualAoNumeroDoApartamentoDeEntrega" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OperadorTest.deveRetornarIniciaisMaiusculasQuandoNomeOperadorForMinusculo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EntregaTest.naoDeveSerPossivelRetirarEntregaQuandoEntregaJaEstiverSidoRetirada" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="entregas-condominio-app" />
       <extension name="coverage">
         <pattern>
@@ -145,20 +116,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="classes" />
-      <option name="MAIN_CLASS_NAME" value="classes.OperadorTest" />
-      <option name="METHOD_NAME" value="deveRetornarIniciaisMaiusculasQuandoNomeOperadorForMinusculo" />
+      <option name="MAIN_CLASS_NAME" value="classes.EntregaTest" />
+      <option name="METHOD_NAME" value="naoDeveSerPossivelRetirarEntregaQuandoEntregaJaEstiverSidoRetirada" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EntregaTest.naoDeveSerPossivelRetirarEntregaQuandoNumeroDoApartamentoDeQuemVaiRetirarForDiferenteDoNumeroApartamentoDoDestinatario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entregas-condominio-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="classes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="classes" />
+      <option name="MAIN_CLASS_NAME" value="classes.EntregaTest" />
+      <option name="METHOD_NAME" value="naoDeveSerPossivelRetirarEntregaQuandoNumeroDoApartamentoDeQuemVaiRetirarForDiferenteDoNumeroApartamentoDoDestinatario" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests in entregas-condominio-app" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="entregas-condominio-app" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/tests" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MoradorTest" />
-        <item itemvalue="JUnit.MoradorTest.deveCriarMoradorCorretamente" />
-        <item itemvalue="JUnit.OperadorTest" />
-        <item itemvalue="JUnit.OperadorTest.deveRetornarIniciaisMaiusculasQuandoNomeOperadorForMinusculo" />
-        <item itemvalue="JUnit.OperadorTest.deveCriarOperadorComAsIniciaisMS" />
+        <item itemvalue="JUnit.tests in entregas-condominio-app" />
+        <item itemvalue="JUnit.EntregaTest.naoDeveSerPossivelRetirarEntregaQuandoNumeroDoApartamentoDeQuemVaiRetirarForDiferenteDoNumeroApartamentoDoDestinatario" />
+        <item itemvalue="JUnit.EntregaTest.naoDeveSerPossivelRetirarEntregaQuandoEntregaJaEstiverSidoRetirada" />
+        <item itemvalue="JUnit.EntregaTest.deveSerPossivelRetirarUmaEntregaQuandoNumeroDoApartamentoDoMoradorQueVaiRetiraForIgualAoNumeroDoApartamentoDeEntrega" />
+        <item itemvalue="JUnit.EntregaTest.deveRetornarONumeroDoApartamentoDaEntregaCorretamente" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +170,7 @@
       <workItem from="1602860928082" duration="1619000" />
       <workItem from="1602863100913" duration="76000" />
       <workItem from="1602863235402" duration="956000" />
-      <workItem from="1602864241097" duration="3511000" />
+      <workItem from="1602864241097" duration="10607000" />
     </task>
     <servers />
   </component>
@@ -187,10 +182,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602280998765" />
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1602869365763">
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1602874244610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869365763" />
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602874244610" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1602875778139">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602875778139" />
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1602870896124">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="296" key="#com.intellij.ide.util.PackageChooserDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602870896124" />
     <state x="399" y="88" key="CommitChangelistDialog2" timestamp="1602869590695">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -199,22 +202,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602864191445" />
-    <state width="1879" height="282" key="GridCell.Tab.0.bottom" timestamp="1602869519687">
+    <state width="1879" height="282" key="GridCell.Tab.0.bottom" timestamp="1602876654839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="282" key="GridCell.Tab.0.bottom/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869519687" />
-    <state width="1879" height="282" key="GridCell.Tab.0.center" timestamp="1602869519687">
+    <state width="1879" height="282" key="GridCell.Tab.0.bottom/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602876654839" />
+    <state width="1879" height="282" key="GridCell.Tab.0.center" timestamp="1602876654838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="282" key="GridCell.Tab.0.center/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869519687" />
-    <state width="1879" height="282" key="GridCell.Tab.0.left" timestamp="1602869519687">
+    <state width="1879" height="282" key="GridCell.Tab.0.center/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602876654838" />
+    <state width="1879" height="282" key="GridCell.Tab.0.left" timestamp="1602876654838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="282" key="GridCell.Tab.0.left/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869519687" />
-    <state width="1879" height="282" key="GridCell.Tab.0.right" timestamp="1602869519687">
+    <state width="1879" height="282" key="GridCell.Tab.0.left/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602876654838" />
+    <state width="1879" height="282" key="GridCell.Tab.0.right" timestamp="1602876654839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="282" key="GridCell.Tab.0.right/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869519687" />
+    <state width="1879" height="282" key="GridCell.Tab.0.right/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602876654839" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1602863292559">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -223,10 +226,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869598924" />
-    <state x="754" y="298" key="chooseDestDirectoryDialog" timestamp="1602869432763">
+    <state x="754" y="298" key="chooseDestDirectoryDialog" timestamp="1602871248261">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="754" y="298" key="chooseDestDirectoryDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869432763" />
+    <state x="754" y="298" key="chooseDestDirectoryDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602871248261" />
     <state x="551" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1602864284411">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -235,10 +238,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="742" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602863454412" />
-    <state x="731" y="326" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1602869432791">
+    <state x="731" y="326" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1602871248290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="731" y="326" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602869432791" />
+    <state x="731" y="326" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1366.303.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1602871248290" />
     <state x="124" y="140" key="new project wizard" timestamp="1602281086609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
