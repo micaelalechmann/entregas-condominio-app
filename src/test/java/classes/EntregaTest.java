@@ -16,7 +16,7 @@ public class EntregaTest {
   public void setup() {
     op = new Operador("Carlos Almeida");
     morador = new Morador("Marlon", "2244610441", 204);
-    entrega = new Entrega(1, "Pacote grande e laranja", op, 204);
+    entrega = new Entrega(1,"Pacote grande e laranja", op, 204);
   }
 
   @Test
@@ -25,7 +25,7 @@ public class EntregaTest {
   }
 
   @Test
-  public void deveRetornarOIdentificadorDaEntregaCorretamente() {
+  public void deveRetornarOIdentificadorDaEntregaCom6Digitos() {
     int idEntregaEsperado = 1;
     int idEntregaObtido = entrega.getIdEntrega();
 

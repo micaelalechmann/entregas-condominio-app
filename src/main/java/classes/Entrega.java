@@ -3,6 +3,7 @@ package classes;
 import exceptions.EntregaJaFoiRetiradaException;
 import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public class Entrega {
   private final int idEntrega;
