@@ -22,4 +22,13 @@ public class Morador {
   public int getNumeroApartamento() {
     return numeroApartamento;
   }
+
+  @Override
+  public String toString() {
+    return "Morador: (" +
+            "nome: '" + nome + '\'' +
+            ", rg: '" + rg + '\'' +
+            ", numeroApartamento: " + numeroApartamento +
+            ')';
+  }
 }
