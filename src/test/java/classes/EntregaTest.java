@@ -25,7 +25,7 @@ public class EntregaTest {
   }
 
   @Test
-  public void deveRetornarOIdentificadorDaEntregaCom6Digitos() {
+  public void deveRetornarOIdentificadorDaEntregaCorretamente() {
     int idEntregaEsperado = 1;
     int idEntregaObtido = entrega.getIdEntrega();
 
