@@ -36,7 +36,7 @@ public class MoradorTest {
   @Test
   public void deveRetornarONumeroDoApartamentoDoMoradorCorretamente() {
     int nroApartamentoEsperado = 204;
-    int nroApartamentoObtido = morador.getNroApartamento();
+    int nroApartamentoObtido = morador.getNumeroApartamento();
 
     Assert.assertEquals(nroApartamentoEsperado, nroApartamentoObtido);
   }

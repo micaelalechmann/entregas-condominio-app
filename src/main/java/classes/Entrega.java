@@ -3,7 +3,6 @@ package classes;
 import exceptions.EntregaJaFoiRetiradaException;
 import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import java.time.LocalDateTime;
-import java.util.Random;
 
 public class Entrega {
   private final int idEntrega;
@@ -12,14 +11,14 @@ public class Entrega {
   private final String descricao;
   private final Operador operadorResponsavel;
   private Morador moradorQueRetirou;
-  private final int nroApartamentoDestinatario;
+  private final int numeroApartamentoDestinatario;
 
-  public Entrega(int idEntrega, String descricao, Operador operadorResponsavel, int nroApartamentoDestinatario) {
+  public Entrega(int idEntrega, String descricao, Operador operadorResponsavel, int numeroApartamentoDestinatario) {
     this.idEntrega = idEntrega;
     this.dataRegistro = LocalDateTime.now();
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
-    this.nroApartamentoDestinatario = nroApartamentoDestinatario;
+    this.numeroApartamentoDestinatario = numeroApartamentoDestinatario;
   }
 
   public int getIdEntrega() {
@@ -46,8 +45,8 @@ public class Entrega {
     return moradorQueRetirou;
   }
 
-  public int getNroApartamentoDestinatario() {
-    return nroApartamentoDestinatario;
+  public int getNumeroApartamentoDestinatario() {
+    return numeroApartamentoDestinatario;
   }
 
   public void retirarEntrega(Morador moradorQueVaiRetirar)
@@ -55,8 +54,8 @@ public class Entrega {
     if(moradorQueRetirou != null)
       throw new EntregaJaFoiRetiradaException(moradorQueRetirou.getNome());
 
-    if(moradorQueVaiRetirar.getNroApartamento() != this.nroApartamentoDestinatario)
-      throw new NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException(this.nroApartamentoDestinatario);
+    if(moradorQueVaiRetirar.getNumeroApartamento() != this.numeroApartamentoDestinatario)
+      throw new NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException(this.numeroApartamentoDestinatario);
 
     this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;

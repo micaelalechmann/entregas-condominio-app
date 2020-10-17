@@ -3,12 +3,12 @@ package classes;
 public class Morador {
   private final String nome;
   private final String rg;
-  private int nroApartamento;
+  private int numeroApartamento;
 
-  public Morador(String nome, String rg, int nroApartamento) {
+  public Morador(String nome, String rg, int numeroApartamento) {
     this.nome = nome;
     this.rg = rg;
-    this.nroApartamento = nroApartamento;
+    this.numeroApartamento = numeroApartamento;
   }
 
   public String getNome() {
@@ -19,7 +19,7 @@ public class Morador {
     return rg;
   }
 
-  public int getNroApartamento() {
-    return nroApartamento;
+  public int getNumeroApartamento() {
+    return numeroApartamento;
   }
 }
