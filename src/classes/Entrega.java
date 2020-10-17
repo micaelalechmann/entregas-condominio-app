@@ -2,12 +2,12 @@ package classes;
 
 import exceptions.EntregaJaFoiRetiradaException;
 import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
-import java.util.Calendar;
+import java.time.LocalDateTime;
 
 public class Entrega {
   private final int idEntrega;
-  private final Calendar dataRegistro;
-  private Calendar dataRetirada;
+  private final LocalDateTime dataRegistro;
+  private LocalDateTime dataRetirada;
   private final String descricao;
   private final Operador operadorResponsavel;
   private Morador moradorQueRetirou;
@@ -15,7 +15,7 @@ public class Entrega {
 
   public Entrega(int idEntrega, String descricao, Operador operadorResponsavel, int nroApartamentoDestinatario) {
     this.idEntrega = idEntrega;
-    this.dataRegistro = Calendar.getInstance();
+    this.dataRegistro = LocalDateTime.now();
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
     this.nroApartamentoDestinatario = nroApartamentoDestinatario;
@@ -25,11 +25,11 @@ public class Entrega {
     return idEntrega;
   }
 
-  public Calendar getDataRegistro() {
+  public LocalDateTime getDataRegistro() {
     return dataRegistro;
   }
 
-  public Calendar getDataRetirada() {
+  public LocalDateTime getDataRetirada() {
     return dataRetirada;
   }
 
@@ -57,7 +57,7 @@ public class Entrega {
     if(moradorQueVaiRetirar.getNroApartamento() != this.nroApartamentoDestinatario)
       throw new NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException(this.nroApartamentoDestinatario);
 
-    this.dataRetirada = Calendar.getInstance();
+    this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;
   }
 }
