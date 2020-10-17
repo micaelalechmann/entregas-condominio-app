@@ -2,8 +2,7 @@ package classes;
 
 import exceptions.EntregaJaFoiRetiradaException;
 import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,16 +58,16 @@ public class EntregaTest {
 
   @Test
   public void deveRetornarAHoraDeRegistroCorretamente() {
-    int horaEsperada = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    int horaObtida = entrega.getDataRegistro().get(Calendar.HOUR_OF_DAY);
+    int horaEsperada = LocalDateTime.now().getHour();
+    int horaObtida = entrega.getDataRegistro().getHour();
 
     Assert.assertEquals(horaEsperada, horaObtida);
   }
 
   @Test
   public void deveRetornarOMinutoDeRegistroCorretamente() {
-    int minutosEsperado = Calendar.getInstance().get(Calendar.MINUTE);
-    int minutosObtido = entrega.getDataRegistro().get(Calendar.MINUTE);
+    int minutosEsperado = LocalDateTime.now().getMinute();
+    int minutosObtido = entrega.getDataRegistro().getMinute();
 
     Assert.assertEquals(minutosEsperado, minutosObtido);
   }
@@ -76,7 +75,7 @@ public class EntregaTest {
   @Test
   public void deveRetornarADataNoFormatoTextoCorretamente() {
     String dataFormatadaEsperada = DateFormater.getDataEmFormatoTexto(entrega.getDataRegistro());
-    String dataFormatadaObtida = DateFormater.getDataEmFormatoTexto(Calendar.getInstance());
+    String dataFormatadaObtida = DateFormater.getDataEmFormatoTexto(LocalDateTime.now());
 
     Assert.assertEquals(dataFormatadaEsperada, dataFormatadaObtida);
   }
@@ -84,7 +83,7 @@ public class EntregaTest {
   @Test
   public void deveRetornarOHorarioNoFormatoTextoCorretamente() {
     String horarioFormatadoEsperada = DateFormater.getHorarioEmFormatoTexto(entrega.getDataRegistro());
-    String horarioFormatadoObtida = DateFormater.getHorarioEmFormatoTexto(Calendar.getInstance());
+    String horarioFormatadoObtida = DateFormater.getHorarioEmFormatoTexto(LocalDateTime.now());
 
     Assert.assertEquals(horarioFormatadoEsperada, horarioFormatadoObtida);
   }
