@@ -1,19 +1,16 @@
 package classes;
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 abstract class DateFormater {
-  public static String getDataEmFormatoTexto(Calendar calendario) {
-    return String.valueOf(calendario.get(Calendar.DAY_OF_MONTH))
-        + '/'
-        + (calendario.get(Calendar.MONTH) + 1)
-        + '/'
-        + calendario.get(Calendar.YEAR) % 100;
+  public static String getDataEmFormatoTexto(LocalDateTime data) {
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+    return data.format(dateFormatter);
   }
 
-  public static String getHorarioEmFormatoTexto(Calendar calendario) {
-    return String.valueOf(calendario.get(Calendar.HOUR_OF_DAY))
-        + ':'
-        + (calendario.get(Calendar.MINUTE));
+  public static String getHorarioEmFormatoTexto(LocalDateTime data) {
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("HH:mm");
+    return data.format(dateFormatter);
   }
 }
