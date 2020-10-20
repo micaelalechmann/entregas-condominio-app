@@ -60,4 +60,16 @@ public class Entrega {
     this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+
+    builder.append("Identificação: ");
+    builder.append(this.idEntrega);
+    builder.append(" - Descrição: ");
+    builder.append(this.descricao);
+
+    return builder.toString();
+  }
 }
