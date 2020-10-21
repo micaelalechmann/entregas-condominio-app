@@ -29,20 +29,6 @@ public class Condominio {
         this.entregas = entregas;
     }
 
-    public void listaEntregasPelaDescricao(String descricao) {
-        List<Entrega> entregasFiltradas = buscaEntregasPelaDescricao(descricao);
-
-        System.out.println("Entregas que contenham a descrição: " + descricao);
-
-        if (entregasFiltradas.size() > 0) {
-            for (Entrega entrega : entregasFiltradas) {
-                System.out.println(entrega.toString());
-            }
-        } else {
-            System.out.println("Nenhuma entrega contem a descrição buscada");
-        }
-    }
-
     public List<Entrega> buscaEntregasPelaDescricao(String descricao) {
         List<Entrega> entregasFiltradas = new ArrayList<>();
 
