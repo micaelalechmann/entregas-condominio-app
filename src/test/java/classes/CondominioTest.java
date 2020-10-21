@@ -23,23 +23,6 @@ public class CondominioTest {
     }
 
     @Test
-    public void listaEntregasPelaDescricao_testaListagem() {
-        // arrange
-        String textoContido = "Teste";
-        String descricaoEsperada = "Descricao " + textoContido;
-        String descricaoNaoEsperada = "Pacote";
-        Entrega entrega1 = new Entrega(1, descricaoEsperada, operador, 1);
-        Entrega entrega2 = new Entrega(2, textoContido, operador, 2);
-        Entrega entrega3 = new Entrega(3, descricaoNaoEsperada, operador, 3);
-        List<Entrega> entregas = Arrays.asList(entrega1, entrega2, entrega3);
-
-        condominio.setEntregas(entregas);
-
-        // act
-        condominio.listaEntregasPelaDescricao(textoContido);
-    }
-
-    @Test
     public void buscaEntregasPelaDescricao_retornaUmaDeDuasEntregas() {
         // arrange
         String descricaoEsperada = "Descricao Teste";
