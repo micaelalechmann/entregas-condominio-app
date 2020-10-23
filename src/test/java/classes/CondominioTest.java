@@ -99,4 +99,15 @@ public class CondominioTest {
         assertEquals(0, resultado.size());
     }
 
+    @Test
+    public void validaCadastroEntrega() {
+
+        Entrega entrega1 = new Entrega(
+                1, "Teste", new Operador("teste"), 123);
+
+        condominio.cadastrarEntrega(entrega1);
+
+        assertTrue(condominio.getEntregas().contains(entrega1));
+    }
+
 }
