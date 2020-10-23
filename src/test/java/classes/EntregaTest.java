@@ -51,7 +51,7 @@ public class EntregaTest {
   @Test
   public void deveRetornarONumeroDoApartamentoDaEntregaCorretamente() {
     int nroApartamentoDeEntregaEsperado = 204;
-    int nroApartamentoDeEntregaObtido = entrega.getNroApartamentoDestinatario();
+    int nroApartamentoDeEntregaObtido = entrega.getNumeroApartamentoDestinatario();
 
     Assert.assertEquals(nroApartamentoDeEntregaEsperado, nroApartamentoDeEntregaObtido);
   }
