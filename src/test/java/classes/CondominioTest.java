@@ -1,16 +1,14 @@
-package classes;
+package test.java.classes;
 
 import main.java.classes.Condominio;
 import main.java.classes.Entrega;
 import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
-
+import org.junit.Assert;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class CondominioTest {
     Condominio condominio;
@@ -36,8 +34,8 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(descricaoEsperada);
 
         // assert
-        assertEquals(1, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertEquals(1, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
     }
 
     @Test
@@ -57,9 +55,9 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(textoContido);
 
         // assert
-        assertEquals(2, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
-        assertTrue(resultado.get(1).getDescricao().contains(textoContido));
+        Assert.assertEquals(2, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertTrue(resultado.get(1).getDescricao().contains(textoContido));
     }
 
     @Test
@@ -79,9 +77,9 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(textoContido);
 
         // assert
-        assertEquals(2, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
-        assertTrue(resultado.get(1).getDescricao().contains(textoContido));
+        Assert.assertEquals(2, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertTrue(resultado.get(1).getDescricao().contains(textoContido));
     }
 
     @Test
@@ -98,6 +96,6 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(descricaoEsperada);
 
         // assert
-        assertEquals(0, resultado.size());
+        Assert.assertEquals(0, resultado.size());
     }
 }
