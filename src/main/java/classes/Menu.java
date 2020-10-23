@@ -12,10 +12,11 @@ public class Menu {
         this.scanner = new Scanner(System.in);
     }
 
-    public void run(){
+        public void run(){
         System.out.println("-- Menu -- \n");
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
+        System.out.println("2 - Listar entregas não retiradas");
 
         this.scanner.reset();
         int numOpcao = this.scanner.nextInt();
@@ -30,6 +31,10 @@ public class Menu {
                 break;
             case 1:
                 this.listarEntregasPorDescricao();
+                this.run();
+                break;
+            case 2:
+                this.listarEntregasNaoRetiradas();
                 this.run();
                 break;
             default:
@@ -56,6 +61,22 @@ public class Menu {
             System.out.println("\n\n");
         } else {
             System.out.println("Nenhuma entrega contem a descrição buscada");
+        }
+    }
+
+    public void listarEntregasNaoRetiradas(){
+
+        List<Entrega> entregasNaoRetiradas =  this.condominio.buscaEntregasNaoRetiradas();
+
+        System.out.println("-- Entregas não retiradas:\n");
+
+        if (entregasNaoRetiradas.size() > 0) {
+            for (Entrega entrega : entregasNaoRetiradas) {
+                System.out.println(entrega.toString());
+            }
+            System.out.println("\n\n");
+        } else {
+            System.out.println("Todas as entregas foram retiradas");
         }
     }
 }
