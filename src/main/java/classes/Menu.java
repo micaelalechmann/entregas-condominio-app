@@ -7,29 +7,34 @@ public class Menu {
     private Condominio condominio;
     private Scanner scanner;
 
-    public Menu(Condominio condominio){
+    public Menu(Condominio condominio) {
         this.condominio = condominio;
         this.scanner = new Scanner(System.in);
     }
 
-    public void run(){
+    public void run() {
         System.out.println("-- Menu -- \n");
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
+        System.out.println("2 - Cadastrar entregas ");
 
         this.scanner.reset();
-        int numOpcao = this.scanner.nextInt();
+        int numOpcao = recebeNumero();
 
         this.executarAcao(numOpcao);
     }
 
-    public void executarAcao(int numOpcao){
-        switch (numOpcao){
+    public void executarAcao(int numOpcao) {
+        switch (numOpcao) {
             case 0:
                 System.out.println("\nSaindo...");
                 break;
             case 1:
                 this.listarEntregasPorDescricao();
+                this.run();
+                break;
+            case 2:
+                this.cadastrarEntrega();
                 this.run();
                 break;
             default:
@@ -39,13 +44,45 @@ public class Menu {
         }
     }
 
-    public void listarEntregasPorDescricao(){
+    private void cadastrarEntrega() {
+        System.out.println("Digite a descrição da entrega: ");
+
+        String descricaoPedido = this.scanner.nextLine();
+
+        System.out.println("Digite o nome do operador que recebeu: ");
+        String nomeOperador = this.scanner.nextLine();
+
+        System.out.println("Digite o número do apartamento: ");
+        Integer numeroApartamento = recebeNumero();
+
+        Operador operadorResponsavel = new Operador(nomeOperador);
+        Entrega entrega = new Entrega(Entrega.getUltimoIdEntrega() + 1,
+                descricaoPedido, operadorResponsavel, numeroApartamento);
+
+        this.condominio.cadastrarEntrega(entrega);
+
+        System.out.println("Entrega cadastrada ");
+
+    }
+
+    private Integer recebeNumero() {
+        while (true) {
+            String aux = this.scanner.nextLine();
+            aux = aux.replaceAll(" ", "");
+            if(aux.matches("^\\d+$")){
+                return Integer.parseInt(aux);
+            }
+            System.out.println("Valor inválido, digite um número válido: ");
+        }
+    }
+
+    public void listarEntregasPorDescricao() {
         System.out.println("Digite a descrição desejada:");
 
         this.scanner.skip("\n");
         String descricao = this.scanner.nextLine();
 
-        List<Entrega> entregasFiltradas =  this.condominio.buscaEntregasPelaDescricao(descricao);
+        List<Entrega> entregasFiltradas = this.condominio.buscaEntregasPelaDescricao(descricao);
 
         System.out.println("-- Entregas que contenham a descrição: " + descricao + " -- \n");
 

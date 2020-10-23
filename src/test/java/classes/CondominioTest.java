@@ -98,4 +98,5 @@ public class CondominioTest {
         // assert
         assertEquals(0, resultado.size());
     }
+
 }

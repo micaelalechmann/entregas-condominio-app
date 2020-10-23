@@ -12,6 +12,7 @@ public class Entrega {
   private final Operador operadorResponsavel;
   private Morador moradorQueRetirou;
   private final int numeroApartamentoDestinatario;
+  private static int ultimoIdEntrega;
 
   public Entrega(int idEntrega, String descricao, Operador operadorResponsavel, int numeroApartamentoDestinatario) {
     this.idEntrega = idEntrega;
@@ -19,6 +20,7 @@ public class Entrega {
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
     this.numeroApartamentoDestinatario = numeroApartamentoDestinatario;
+    ultimoIdEntrega = idEntrega;
   }
 
   public int getIdEntrega() {
@@ -59,6 +61,10 @@ public class Entrega {
 
     this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;
+  }
+
+  public static int getUltimoIdEntrega() {
+    return ultimoIdEntrega;
   }
 
   @Override

@@ -40,4 +40,8 @@ public class Condominio {
 
         return entregasFiltradas;
     }
+
+    public boolean cadastrarEntrega(Entrega entrega) {
+        return this.entregas.add(entrega);
+    }
 }
