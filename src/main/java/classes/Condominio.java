@@ -2,6 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import classes.*;
+import main.java.classes.Morador;
+import main.java.classes.Entrega;
 
 public class Condominio {
 

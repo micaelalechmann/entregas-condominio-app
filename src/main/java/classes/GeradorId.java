@@ -1,4 +1,4 @@
-package classes;
+package main.java.classes;
 
 public class GeradorId {
     private int id = 1;

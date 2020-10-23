@@ -2,6 +2,8 @@ package classes;
 
 import java.util.List;
 import java.util.Scanner;
+import main.java.classes.Operador;
+import main.java.classes.Entrega;
 
 public class Menu {
     private Condominio condominio;

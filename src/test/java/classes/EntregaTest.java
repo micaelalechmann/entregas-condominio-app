@@ -1,14 +1,19 @@
-package classes;
+package test.java.classes;
 
-import exceptions.EntregaJaFoiRetiradaException;
-import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
+
+import main.java.classes.Operador;
+import main.java.classes.Morador;
+import main.java.classes.Entrega;
+import main.java.classes.DateFormater;
+import main.java.exceptions.EntregaJaFoiRetiradaException;
+import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 
 public class EntregaTest {
     Operador op;
@@ -32,7 +37,7 @@ public class EntregaTest {
         int idEntregaEsperado = 1;
         int idEntregaObtido = entrega.getIdEntrega();
 
-        assertEquals(idEntregaEsperado, idEntregaObtido);
+        Assert.assertEquals(idEntregaEsperado, idEntregaObtido);
     }
 
     @Test
@@ -40,7 +45,7 @@ public class EntregaTest {
         String descricaoEsperada = "Pacote grande e laranja";
         String descricaoObtida = entrega.getDescricao();
 
-        assertEquals(descricaoEsperada, descricaoObtida);
+        Assert.assertEquals(descricaoEsperada, descricaoObtida);
     }
 
     @Test
@@ -48,7 +53,7 @@ public class EntregaTest {
         String nomeOperadorEsperado = "CA";
         String nomeOperadorObtido = entrega.getOperadorResponsavel().toString();
 
-        assertEquals(nomeOperadorEsperado, nomeOperadorObtido);
+        Assert.assertEquals(nomeOperadorEsperado, nomeOperadorObtido);
     }
 
     @Test
@@ -56,7 +61,7 @@ public class EntregaTest {
         int nroApartamentoDeEntregaEsperado = 204;
         int nroApartamentoDeEntregaObtido = entrega.getNumeroApartamentoDestinatario();
 
-        assertEquals(nroApartamentoDeEntregaEsperado, nroApartamentoDeEntregaObtido);
+        Assert.assertEquals(nroApartamentoDeEntregaEsperado, nroApartamentoDeEntregaObtido);
     }
 
     @Test
@@ -64,7 +69,7 @@ public class EntregaTest {
         int horaEsperada = LocalDateTime.now().getHour();
         int horaObtida = entrega.getDataRegistro().getHour();
 
-        assertEquals(horaEsperada, horaObtida);
+        Assert.assertEquals(horaEsperada, horaObtida);
     }
 
     @Test
@@ -72,7 +77,7 @@ public class EntregaTest {
         int minutosEsperado = LocalDateTime.now().getMinute();
         int minutosObtido = entrega.getDataRegistro().getMinute();
 
-        assertEquals(minutosEsperado, minutosObtido);
+        Assert.assertEquals(minutosEsperado, minutosObtido);
     }
 
     @Test
@@ -80,7 +85,7 @@ public class EntregaTest {
         String dataFormatadaEsperada = DateFormater.getDataEmFormatoTexto(entrega.getDataRegistro());
         String dataFormatadaObtida = DateFormater.getDataEmFormatoTexto(LocalDateTime.now());
 
-        assertEquals(dataFormatadaEsperada, dataFormatadaObtida);
+        Assert.assertEquals(dataFormatadaEsperada, dataFormatadaObtida);
     }
 
     @Test
@@ -88,7 +93,7 @@ public class EntregaTest {
         String horarioFormatadoEsperada = DateFormater.getHorarioEmFormatoTexto(entrega.getDataRegistro());
         String horarioFormatadoObtida = DateFormater.getHorarioEmFormatoTexto(LocalDateTime.now());
 
-        assertEquals(horarioFormatadoEsperada, horarioFormatadoObtida);
+        Assert.assertEquals(horarioFormatadoEsperada, horarioFormatadoObtida);
     }
 
     @Test
@@ -98,7 +103,7 @@ public class EntregaTest {
         String nomeDoMoradorQueRetirouEsperado = "Marlon";
         String nomeDoMoradorQueRetirouObtido = entrega.getMoradorQueRetirou().getNome();
 
-        assertEquals(nomeDoMoradorQueRetirouEsperado, nomeDoMoradorQueRetirouObtido);
+        Assert.assertEquals(nomeDoMoradorQueRetirouEsperado, nomeDoMoradorQueRetirouObtido);
     }
 
     @Test(expected = EntregaJaFoiRetiradaException.class)
@@ -119,6 +124,6 @@ public class EntregaTest {
     public void validarControleUltimoIdEntrega() {
         Entrega entrega = new Entrega(1, "Teste", new Operador("teste"), 123);
 
-        assertEquals(2, Entrega.getUProximoIdEntrega());
+        Assert.assertEquals(2, Entrega.getUProximoIdEntrega());
     }
 }

@@ -6,9 +6,11 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import main.java.classes.Operador;
+import main.java.classes.Entrega;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import org.junit.Assert;
 
 public class CondominioTest {
     Condominio condominio;
@@ -34,8 +36,8 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(descricaoEsperada);
 
         // assert
-        assertEquals(1, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertEquals(1, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
     }
 
     @Test
@@ -55,9 +57,9 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(textoContido);
 
         // assert
-        assertEquals(2, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
-        assertTrue(resultado.get(1).getDescricao().contains(textoContido));
+        Assert.assertEquals(2, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertTrue(resultado.get(1).getDescricao().contains(textoContido));
     }
 
     @Test
@@ -77,9 +79,9 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(textoContido);
 
         // assert
-        assertEquals(2, resultado.size());
-        assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
-        assertTrue(resultado.get(1).getDescricao().contains(textoContido));
+        Assert.assertEquals(2, resultado.size());
+        Assert.assertEquals(descricaoEsperada, resultado.get(0).getDescricao());
+        Assert.assertTrue(resultado.get(1).getDescricao().contains(textoContido));
     }
 
     @Test
@@ -96,7 +98,7 @@ public class CondominioTest {
         List<Entrega> resultado = condominio.buscaEntregasPelaDescricao(descricaoEsperada);
 
         // assert
-        assertEquals(0, resultado.size());
+        Assert.assertEquals(0, resultado.size());
     }
 
     @Test
@@ -107,7 +109,7 @@ public class CondominioTest {
 
         condominio.cadastrarEntrega(entrega1);
 
-        assertTrue(condominio.getEntregas().contains(entrega1));
+        Assert.assertTrue(condominio.getEntregas().contains(entrega1));
     }
 
 }
