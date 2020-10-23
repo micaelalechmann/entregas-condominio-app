@@ -1,5 +1,6 @@
-package classes;
+package test.java.classes;
 
+import main.java.classes.Operador;
 import org.junit.Assert;
 import org.junit.Test;
 
