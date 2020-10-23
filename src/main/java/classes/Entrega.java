@@ -63,8 +63,8 @@ public class Entrega {
     this.moradorQueRetirou = moradorQueVaiRetirar;
   }
 
-  public static int getUltimoIdEntrega() {
-    return ultimoIdEntrega;
+  public static int getUProximoIdEntrega() {
+    return ultimoIdEntrega+1;
   }
 
   @Override

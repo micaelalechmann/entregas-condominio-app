@@ -56,7 +56,7 @@ public class Menu {
         Integer numeroApartamento = recebeNumero();
 
         Operador operadorResponsavel = new Operador(nomeOperador);
-        Entrega entrega = new Entrega(Entrega.getUltimoIdEntrega() + 1,
+        Entrega entrega = new Entrega(Entrega.getUProximoIdEntrega(),
                 descricaoPedido, operadorResponsavel, numeroApartamento);
 
         this.condominio.cadastrarEntrega(entrega);
@@ -79,7 +79,6 @@ public class Menu {
     public void listarEntregasPorDescricao() {
         System.out.println("Digite a descrição desejada:");
 
-        this.scanner.skip("\n");
         String descricao = this.scanner.nextLine();
 
         List<Entrega> entregasFiltradas = this.condominio.buscaEntregasPelaDescricao(descricao);
