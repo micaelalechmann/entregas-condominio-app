@@ -16,7 +16,12 @@ public class Entrega {
     this.dataRegistro = LocalDateTime.now();
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
-    this.numeroApartamentoDestinatario = numeroApartamentoDestinatario;
+    this.numeroApartamentoDestinatario = numeroApartamentoDestinatario; 
+    }
+
+  public Boolean entregaFoiRetirada() {
+    if (dataRetirada != null || moradorQueRetirou != null) return true;
+    else return false;
   }
 
   public int getIdEntrega() {
@@ -69,5 +74,13 @@ public class Entrega {
     builder.append(this.descricao);
 
     return builder.toString();
+  }
+
+  public void setDataRetirada(LocalDateTime dataRetirada) {
+    this.dataRetirada = dataRetirada;
+  }
+
+  public void setMoradorQueRetirou(Morador moradorQueRetirou) {
+    this.moradorQueRetirou = moradorQueRetirou;
   }
 }
