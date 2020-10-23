@@ -2,7 +2,6 @@ package main.java.classes;
 
 import main.java.classes.Operador;
 import main.java.classes.Morador;
-
 import java.time.LocalDateTime;
 import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import main.java.exceptions.EntregaJaFoiRetiradaException;
@@ -55,7 +54,7 @@ public class Entrega {
   }
 
   public void retirarEntrega(Morador moradorQueVaiRetirar)
-      throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
+          throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
     if(moradorQueRetirou != null)
       throw new EntregaJaFoiRetiradaException(moradorQueRetirou.getNome());
 

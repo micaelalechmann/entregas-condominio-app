@@ -16,6 +16,7 @@ import main.java.exceptions.EntregaJaFoiRetiradaException;
 import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 
 public class EntregaTest {
+
     Operador op;
     Morador morador;
     Entrega entrega;
@@ -24,7 +25,7 @@ public class EntregaTest {
     public void setup() {
         op = new Operador("Carlos Almeida");
         morador = new Morador("Marlon", "2244610441", 204);
-        entrega = new Entrega(1, "Pacote grande e laranja", op, 204);
+        entrega = new Entrega(1,"Pacote grande e laranja", op, 204);
     }
 
     @Test
@@ -113,7 +114,7 @@ public class EntregaTest {
         entrega.retirarEntrega(morador);
     }
 
-    @Test(expected = NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException.class)
+    @Test (expected = NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException.class)
     public void naoDeveSerPossivelRetirarEntregaQuandoNumeroDoApartamentoDeQuemVaiRetirarForDiferenteDoNumeroApartamentoDoDestinatario()
             throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
         morador = new Morador("Marlon", "2244610441", 345);

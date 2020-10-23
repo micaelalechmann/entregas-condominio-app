@@ -1,16 +1,14 @@
-package classes;
+package test.java.classes;
 
+import main.java.classes.Condominio;
+import main.java.classes.Entrega;
+import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
-
+import org.junit.Assert;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import main.java.classes.Operador;
-import main.java.classes.Entrega;
-
-
-import org.junit.Assert;
 
 public class CondominioTest {
     Condominio condominio;

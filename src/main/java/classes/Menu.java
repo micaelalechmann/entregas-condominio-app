@@ -1,15 +1,16 @@
-package classes;
+package main.java.classes;
 
 import java.util.List;
 import java.util.Scanner;
 import main.java.classes.Operador;
 import main.java.classes.Entrega;
+import main.java.classes.Condominio;
 
 public class Menu {
     private Condominio condominio;
     private Scanner scanner;
 
-    public Menu(Condominio condominio) {
+    public Menu(Condominio condominio){
         this.condominio = condominio;
         this.scanner = new Scanner(System.in);
     }
@@ -26,8 +27,8 @@ public class Menu {
         this.executarAcao(numOpcao);
     }
 
-    public void executarAcao(int numOpcao) {
-        switch (numOpcao) {
+    public void executarAcao(int numOpcao){
+        switch (numOpcao){
             case 0:
                 System.out.println("\nSaindo...");
                 break;
@@ -78,12 +79,12 @@ public class Menu {
         }
     }
 
-    public void listarEntregasPorDescricao() {
+    public void listarEntregasPorDescricao(){
         System.out.println("Digite a descrição desejada:");
 
         String descricao = this.scanner.nextLine();
 
-        List<Entrega> entregasFiltradas = this.condominio.buscaEntregasPelaDescricao(descricao);
+        List<Entrega> entregasFiltradas =  this.condominio.buscaEntregasPelaDescricao(descricao);
 
         System.out.println("-- Entregas que contenham a descrição: " + descricao + " -- \n");
 
