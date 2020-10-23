@@ -54,7 +54,7 @@ public class Entrega {
   }
 
   public void retirarEntrega(Morador moradorQueVaiRetirar)
-          throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
+      throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
     if(moradorQueRetirou != null)
       throw new EntregaJaFoiRetiradaException(moradorQueRetirou.getNome());
 
