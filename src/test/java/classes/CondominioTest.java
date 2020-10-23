@@ -2,10 +2,13 @@ package test.java.classes;
 
 import main.java.classes.Condominio;
 import main.java.classes.Entrega;
+import main.java.classes.Morador;
 import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
+
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -108,6 +111,57 @@ public class CondominioTest {
         condominio.cadastrarEntrega(entrega1);
 
         Assert.assertTrue(condominio.getEntregas().contains(entrega1));
+    }
+
+    @Test
+    public void buscaEntregasNaoRetiradas_todasRetiradas() {
+        // arrange
+        Entrega entrega1 = new Entrega(1, "", operador, 2);
+        entrega1.setDataRetirada(LocalDateTime.now());
+        Entrega entrega2 = new Entrega(2, "", operador, 2);
+        entrega2.setMoradorQueRetirou(new Morador("Diego Souza", "999999", 1));
+
+        List<Entrega> entregas = List.of(entrega1, entrega2);
+        condominio.setEntregas(entregas);
+
+        // act
+        List<Entrega> resultado = condominio.buscaEntregasNaoRetiradas();
+
+        // assert
+        Assert.assertEquals(0, resultado.size());
+    }
+
+    @Test
+    public void buscaEntregasNaoRetiradas_nenhumaRetirada() {
+        // arrange
+        Entrega entrega1 = new Entrega(1, "", operador, 1);
+        Entrega entrega2 = new Entrega(2, "", operador, 2);
+
+        List<Entrega> entregas = List.of(entrega1, entrega2);
+        condominio.setEntregas(entregas);
+
+        // act
+        List<Entrega> resultado = condominio.buscaEntregasNaoRetiradas();
+
+        // assert
+        Assert.assertEquals(2, resultado.size());
+    }
+
+    @Test
+    public void buscaEntregasNaoRetiradas_contendoRetiradasEnaoRetiradas() {
+        // arrange
+        Entrega entrega1 = new Entrega(1, "", operador, 1);
+        entrega1.setDataRetirada(LocalDateTime.now());
+        Entrega entrega2 = new Entrega(2, "", operador, 2);
+
+        List<Entrega> entregas = List.of(entrega1, entrega2);
+        condominio.setEntregas(entregas);
+
+        // act
+        List<Entrega> resultado = condominio.buscaEntregasNaoRetiradas();
+
+        // assert
+        Assert.assertEquals(1, resultado.size());
     }
 
 }

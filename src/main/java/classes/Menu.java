@@ -19,7 +19,8 @@ public class Menu {
         System.out.println("-- Menu -- \n");
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
-        System.out.println("2 - Cadastrar entregas ");
+        System.out.println("2 - Listar entregas não retiradas");
+        System.out.println("3 - Cadastrar entregas ");
 
         this.scanner.reset();
         int numOpcao = recebeNumero();
@@ -37,9 +38,14 @@ public class Menu {
                 this.run();
                 break;
             case 2:
+                this.listarEntregasNaoRetiradas();
+                this.run();
+                break;
+            case 3:
                 this.cadastrarEntrega();
                 this.run();
                 break;
+
             default:
                 System.out.println("Opção inexistente");
                 this.run();
@@ -95,6 +101,22 @@ public class Menu {
             System.out.println("\n\n");
         } else {
             System.out.println("Nenhuma entrega contem a descrição buscada");
+        }
+    }
+
+    public void listarEntregasNaoRetiradas(){
+
+        List<Entrega> entregasNaoRetiradas =  this.condominio.buscaEntregasNaoRetiradas();
+
+        System.out.println("-- Entregas não retiradas:\n");
+
+        if (entregasNaoRetiradas.size() > 0) {
+            for (Entrega entrega : entregasNaoRetiradas) {
+                System.out.println(entrega.toString());
+            }
+            System.out.println("\n\n");
+        } else {
+            System.out.println("Todas as entregas foram retiradas");
         }
     }
 }
