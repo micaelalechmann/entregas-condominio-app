@@ -1,8 +1,5 @@
 package classes;
 
-import main.java.classes.Condominio;
-import main.java.classes.Entrega;
-import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +7,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CondominioTest {
     Condominio condominio;
