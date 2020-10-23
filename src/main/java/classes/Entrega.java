@@ -1,8 +1,6 @@
-package classes;
-
-import exceptions.EntregaJaFoiRetiradaException;
-import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
+package main.java.classes;
 import java.time.LocalDateTime;
+import main.java.exceptions.*;
 
 public class Entrega {
   private final int idEntrega;
