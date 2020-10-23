@@ -1,9 +1,9 @@
-package classes;
+package main.java.classes;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-abstract class DateFormater {
+public abstract class DateFormater {
   public static String getDataEmFormatoTexto(LocalDateTime data) {
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy");
     return data.format(dateFormatter);

@@ -1,8 +1,8 @@
-package classes;
+package test.java.classes;
 
-import exceptions.EntregaJaFoiRetiradaException;
-import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import java.time.LocalDateTime;
+import main.java.classes.*;
+import main.java.exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
