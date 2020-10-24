@@ -1,4 +1,4 @@
-package main.java.classes;
+package classes;
 
 public class Operador {
   private final String nome;

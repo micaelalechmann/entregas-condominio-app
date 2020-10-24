@@ -1,9 +1,6 @@
-package test.java.classes;
+package classes;
 
-import main.java.classes.Condominio;
-import main.java.classes.Entrega;
-import main.java.classes.Morador;
-import main.java.classes.Operador;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
