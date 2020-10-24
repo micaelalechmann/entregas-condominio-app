@@ -1,12 +1,10 @@
-package test.java.classes;
+package classes;
 
-import main.java.classes.Condominio;
-import main.java.classes.Entrega;
-import main.java.classes.Morador;
-import main.java.classes.Operador;
+
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;

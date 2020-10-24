@@ -1,11 +1,11 @@
-package test.java.classes;
+package classes;
 
-import java.time.LocalDateTime;
+import exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import main.java.classes.*;
-import main.java.exceptions.*;
+
+import java.time.LocalDateTime;
 
 public class EntregaTest {
   Operador op;
