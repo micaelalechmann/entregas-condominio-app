@@ -1,5 +1,4 @@
 package test.java.classes;
-
 import main.java.classes.Morador;
 import org.junit.Assert;
 import org.junit.Before;

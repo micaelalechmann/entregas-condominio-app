@@ -7,7 +7,6 @@ import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
@@ -121,7 +120,7 @@ public class CondominioTest {
         Entrega entrega2 = new Entrega(2, "", operador, 2);
         entrega2.setMoradorQueRetirou(new Morador("Diego Souza", "999999", 1));
 
-        List<Entrega> entregas = List.of(entrega1, entrega2);
+        List<Entrega> entregas = Arrays.asList(entrega1, entrega2);
         condominio.setEntregas(entregas);
 
         // act
@@ -137,7 +136,7 @@ public class CondominioTest {
         Entrega entrega1 = new Entrega(1, "", operador, 1);
         Entrega entrega2 = new Entrega(2, "", operador, 2);
 
-        List<Entrega> entregas = List.of(entrega1, entrega2);
+        List<Entrega> entregas = Arrays.asList(entrega1, entrega2);
         condominio.setEntregas(entregas);
 
         // act
@@ -154,7 +153,7 @@ public class CondominioTest {
         entrega1.setDataRetirada(LocalDateTime.now());
         Entrega entrega2 = new Entrega(2, "", operador, 2);
 
-        List<Entrega> entregas = List.of(entrega1, entrega2);
+        List<Entrega> entregas = Arrays.asList(entrega1, entrega2);
         condominio.setEntregas(entregas);
 
         // act
@@ -163,5 +162,4 @@ public class CondominioTest {
         // assert
         Assert.assertEquals(1, resultado.size());
     }
-
 }

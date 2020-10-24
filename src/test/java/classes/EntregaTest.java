@@ -1,24 +1,11 @@
 package test.java.classes;
 
-
 import java.time.LocalDateTime;
-import java.util.List;
-
-import main.java.classes.*;
-import main.java.exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import java.time.LocalDateTime;
-
-import org.junit.Assert;
-
-import main.java.classes.Operador;
-import main.java.classes.Morador;
-import main.java.classes.Entrega;
-import main.java.classes.DateFormater;
-import main.java.exceptions.EntregaJaFoiRetiradaException;
-import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
+import main.java.classes.*;
+import main.java.exceptions.*;
 
 public class EntregaTest {
   Operador op;
@@ -134,6 +121,7 @@ public class EntregaTest {
     // assert
     Assert.assertFalse(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_comDataDeRetirada() {
     // arrange
@@ -144,6 +132,7 @@ public class EntregaTest {
     // assert
     Assert.assertTrue(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_comMoradorQueRetirou() {
     // arrange
@@ -154,6 +143,7 @@ public class EntregaTest {
     // assert
     Assert.assertTrue(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_ambosRequisitos() {
     // arrange
@@ -168,8 +158,8 @@ public class EntregaTest {
   
     @Test
     public void validarControleUltimoIdEntrega() {
-        Entrega entrega = new Entrega(1, "Teste", new Operador("teste"), 123);
+      Entrega entrega = new Entrega(1, "Teste", new Operador("teste"), 123);
 
-        Assert.assertEquals(2, Entrega.getUProximoIdEntrega());
+      Assert.assertEquals(2, Entrega.getUProximoIdEntrega());
     }
 }

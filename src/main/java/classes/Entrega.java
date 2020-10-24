@@ -1,7 +1,5 @@
 package main.java.classes;
 
-import main.java.classes.Operador;
-import main.java.classes.Morador;
 import java.time.LocalDateTime;
 import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import main.java.exceptions.EntregaJaFoiRetiradaException;

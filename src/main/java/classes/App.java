@@ -1,6 +1,4 @@
-package classes;
-import main.java.classes.Menu;
-import main.java.classes.Condominio;
+package main.java.classes;
 
 public class App {
     public static void main(String[] args) {
