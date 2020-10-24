@@ -16,7 +16,7 @@ public class EntregaTest {
   public void setup() {
     op = new Operador("Carlos Almeida");
     morador = new Morador("Marlon", "2244610441", 204);
-    entrega = new Entrega(1,"Pacote grande e laranja", op, 204);
+    entrega = new Entrega(1, "Pacote grande e laranja", op, 204);
   }
 
   @Test
@@ -90,7 +90,7 @@ public class EntregaTest {
 
   @Test
   public void deveSerPossivelRetirarUmaEntregaQuandoNumeroDoApartamentoDoMoradorQueVaiRetiraForIgualAoNumeroDoApartamentoDeEntrega()
-      throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
+          throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
     entrega.retirarEntrega(morador);
     String nomeDoMoradorQueRetirouEsperado = "Marlon";
     String nomeDoMoradorQueRetirouObtido = entrega.getMoradorQueRetirou().getNome();
@@ -100,15 +100,56 @@ public class EntregaTest {
 
   @Test(expected = EntregaJaFoiRetiradaException.class)
   public void naoDeveSerPossivelRetirarEntregaQuandoEntregaJaEstiverSidoRetirada()
-      throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
+          throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
     entrega.retirarEntrega(morador);
     entrega.retirarEntrega(morador);
   }
 
-  @Test (expected = NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException.class)
+  @Test(expected = NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException.class)
   public void naoDeveSerPossivelRetirarEntregaQuandoNumeroDoApartamentoDeQuemVaiRetirarForDiferenteDoNumeroApartamentoDoDestinatario()
-      throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
+          throws EntregaJaFoiRetiradaException, NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException {
     morador = new Morador("Marlon", "2244610441", 345);
     entrega.retirarEntrega(morador);
+  }
+
+  @Test
+  public void entregaNaoFoiRetirada() {
+    // arrange
+    Entrega entrega1 = new Entrega(1, "", new Operador("Operador Teste"), 1);
+    // act
+    Boolean resultado = entrega1.entregaFoiRetirada();
+    // assert
+    Assert.assertFalse(resultado);
+  }
+  @Test
+  public void entregaFoiRetirada_comDataDeRetirada() {
+    // arrange
+    Entrega entrega1 = new Entrega(1, "", new Operador("Operador Teste"), 1);
+    entrega1.setDataRetirada(LocalDateTime.now());
+    // act
+    Boolean resultado = entrega1.entregaFoiRetirada();
+    // assert
+    Assert.assertTrue(resultado);
+  }
+  @Test
+  public void entregaFoiRetirada_comMoradorQueRetirou() {
+    // arrange
+    Entrega entrega1 = new Entrega(1, "", new Operador("Operador Teste"), 1);
+    entrega1.setMoradorQueRetirou(new Morador("Diego Souza", "999999", 1));
+    // act
+    Boolean resultado = entrega1.entregaFoiRetirada();
+    // assert
+    Assert.assertTrue(resultado);
+  }
+  @Test
+  public void entregaFoiRetirada_ambosRequisitos() {
+    // arrange
+    Entrega entrega1 = new Entrega(1, "", new Operador("Operador Teste"), 1);
+    entrega1.setDataRetirada(LocalDateTime.now());
+    entrega1.setMoradorQueRetirou(new Morador("Diego Souza", "999999", 1));
+    // act
+    Boolean resultado = entrega1.entregaFoiRetirada();
+    // assert
+    Assert.assertTrue(resultado);
   }
 }

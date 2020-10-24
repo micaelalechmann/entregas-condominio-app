@@ -1,7 +1,6 @@
 package main.java.classes;
-
-import main.java.exceptions.*;
 import java.time.LocalDateTime;
+import main.java.exceptions.*;
 
 public class Entrega {
   private final int idEntrega;
@@ -17,7 +16,12 @@ public class Entrega {
     this.dataRegistro = LocalDateTime.now();
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
-    this.numeroApartamentoDestinatario = numeroApartamentoDestinatario;
+    this.numeroApartamentoDestinatario = numeroApartamentoDestinatario; 
+    }
+
+  public Boolean entregaFoiRetirada() {
+    if (dataRetirada != null || moradorQueRetirou != null) return true;
+    else return false;
   }
 
   public int getIdEntrega() {
@@ -58,5 +62,25 @@ public class Entrega {
 
     this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+
+    builder.append("Identificação: ");
+    builder.append(this.idEntrega);
+    builder.append(" - Descrição: ");
+    builder.append(this.descricao);
+
+    return builder.toString();
+  }
+
+  public void setDataRetirada(LocalDateTime dataRetirada) {
+    this.dataRetirada = dataRetirada;
+  }
+
+  public void setMoradorQueRetirou(Morador moradorQueRetirou) {
+    this.moradorQueRetirou = moradorQueRetirou;
   }
 }
