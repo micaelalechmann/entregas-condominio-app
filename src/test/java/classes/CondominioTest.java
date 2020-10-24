@@ -1,6 +1,8 @@
 package classes;
 
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +17,7 @@ public class CondominioTest {
     Operador operador;
 
     @Before
-    public void setup(){
+    public void setup() {
         condominio = new Condominio();
         operador = new Operador("Operador Teste");
     }
@@ -159,5 +161,22 @@ public class CondominioTest {
 
         // assert
         Assert.assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void deveCadastrarMorador() {
+        // arrange
+        final String nome = RandomStringUtils.randomAlphabetic(20);
+        final String rg = RandomStringUtils.randomNumeric(8);
+        final int numeroApartamento = RandomUtils.nextInt();
+
+        final Morador morador = new Morador(nome, rg, numeroApartamento);
+
+        // act
+        condominio.cadastrarMorador(morador);
+
+        // assert
+        Assert.assertEquals(1, condominio.getMoradores().size());
+        Assert.assertTrue(condominio.getMoradores().contains(morador));
     }
 }

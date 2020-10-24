@@ -38,6 +38,10 @@ public class Condominio {
         return entregasNaoRetiradas;
     }
 
+    public void cadastrarMorador(final Morador morador) {
+        this.moradores.add(morador);
+    }
+
     public List<Morador> getMoradores() {
         return moradores;
     }
