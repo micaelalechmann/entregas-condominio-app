@@ -135,17 +135,17 @@ public class Menu {
         switch (numOpcao){
             case 1:
                 this.cadastrarOperador();
-                this.run();
+                this.menuOperador();
                 break;
             case 2:
                 this.listarOperadores();
-                this.run();
+                this.menuOperador();
                 break;
             case 3:
                 break;
             default:
                 System.out.println("Opção inexistente");
-                this.run();
+                this.menuOperador();
                 break;
         }
     }
@@ -160,7 +160,6 @@ public class Menu {
 
         System.out.println("Operador cadastrado com sucesso!");
         this.scanner.reset();
-        menuOperador();
     }
 
     public void listarOperadores() {
@@ -174,6 +173,5 @@ public class Menu {
 
         operadorAtual = condominio.getOperadores().get(indiceOperador - 1);
         this.scanner.reset();
-        menuOperador();
     }
 }
