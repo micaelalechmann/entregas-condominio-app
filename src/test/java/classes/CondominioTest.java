@@ -7,7 +7,6 @@ import main.java.classes.Operador;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
@@ -100,6 +99,17 @@ public class CondominioTest {
 
         // assert
         Assert.assertEquals(0, resultado.size());
+    }
+
+    @Test
+    public void validaCadastroEntrega() {
+
+        Entrega entrega1 = new Entrega(
+                1, "Teste", new Operador("teste"), 123);
+
+        condominio.cadastrarEntrega(entrega1);
+
+        Assert.assertTrue(condominio.getEntregas().contains(entrega1));
     }
 
     @Test

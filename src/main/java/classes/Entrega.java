@@ -1,6 +1,8 @@
 package main.java.classes;
+
 import java.time.LocalDateTime;
-import main.java.exceptions.*;
+import main.java.exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
+import main.java.exceptions.EntregaJaFoiRetiradaException;
 
 public class Entrega {
   private final int idEntrega;
@@ -10,12 +12,14 @@ public class Entrega {
   private final Operador operadorResponsavel;
   private Morador moradorQueRetirou;
   private final int numeroApartamentoDestinatario;
+  private static int ultimoIdEntrega;
 
   public Entrega(int idEntrega, String descricao, Operador operadorResponsavel, int numeroApartamentoDestinatario) {
     this.idEntrega = idEntrega;
     this.dataRegistro = LocalDateTime.now();
     this.descricao = descricao;
     this.operadorResponsavel = operadorResponsavel;
+    ultimoIdEntrega = idEntrega;
     this.numeroApartamentoDestinatario = numeroApartamentoDestinatario; 
     }
 
@@ -62,6 +66,10 @@ public class Entrega {
 
     this.dataRetirada = LocalDateTime.now();
     this.moradorQueRetirou = moradorQueVaiRetirar;
+  }
+
+  public static int getUProximoIdEntrega() {
+    return ultimoIdEntrega+1;
   }
 
   @Override

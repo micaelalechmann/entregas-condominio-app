@@ -1,5 +1,4 @@
 package main.java.classes;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,12 @@ public class Condominio {
 
         return entregasFiltradas;
     }
-    public List<Entrega> buscaEntregasNaoRetiradas (){
+
+    public boolean cadastrarEntrega(Entrega entrega) {
+        return this.entregas.add(entrega);
+    }
+
+     public List<Entrega> buscaEntregasNaoRetiradas (){
         List<Entrega> entregasNaoRetiradas = new ArrayList<>();
         for (Entrega confereEntrega: this.entregas){
             if(!confereEntrega.entregaFoiRetirada()){

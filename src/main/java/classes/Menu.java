@@ -12,14 +12,15 @@ public class Menu {
         this.scanner = new Scanner(System.in);
     }
 
-        public void run(){
+    public void run() {
         System.out.println("-- Menu -- \n");
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
         System.out.println("2 - Listar entregas não retiradas");
+        System.out.println("3 - Cadastrar entregas ");
 
         this.scanner.reset();
-        int numOpcao = this.scanner.nextInt();
+        int numOpcao = recebeNumero();
 
         this.executarAcao(numOpcao);
     }
@@ -37,6 +38,11 @@ public class Menu {
                 this.listarEntregasNaoRetiradas();
                 this.run();
                 break;
+            case 3:
+                this.cadastrarEntrega();
+                this.run();
+                break;
+
             default:
                 System.out.println("Opção inexistente");
                 this.run();
@@ -44,10 +50,41 @@ public class Menu {
         }
     }
 
+    private void cadastrarEntrega() {
+        System.out.println("Digite a descrição da entrega: ");
+
+        String descricaoPedido = this.scanner.nextLine();
+
+        System.out.println("Digite o nome do operador que recebeu: ");
+        String nomeOperador = this.scanner.nextLine();
+
+        System.out.println("Digite o número do apartamento: ");
+        Integer numeroApartamento = recebeNumero();
+
+        Operador operadorResponsavel = new Operador(nomeOperador);
+        Entrega entrega = new Entrega(Entrega.getUProximoIdEntrega(),
+                descricaoPedido, operadorResponsavel, numeroApartamento);
+
+        this.condominio.cadastrarEntrega(entrega);
+
+        System.out.println("Entrega cadastrada ");
+
+    }
+
+    private Integer recebeNumero() {
+        while (true) {
+            String aux = this.scanner.nextLine();
+            aux = aux.replaceAll(" ", "");
+            if(aux.matches("^\\d+$")){
+                return Integer.parseInt(aux);
+            }
+            System.out.println("Valor inválido, digite um número válido: ");
+        }
+    }
+
     public void listarEntregasPorDescricao(){
         System.out.println("Digite a descrição desejada:");
 
-        this.scanner.skip("\n");
         String descricao = this.scanner.nextLine();
 
         List<Entrega> entregasFiltradas =  this.condominio.buscaEntregasPelaDescricao(descricao);

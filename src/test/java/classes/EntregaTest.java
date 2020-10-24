@@ -1,11 +1,11 @@
 package test.java.classes;
 
 import java.time.LocalDateTime;
-import main.java.classes.*;
-import main.java.exceptions.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import main.java.classes.*;
+import main.java.exceptions.*;
 
 public class EntregaTest {
   Operador op;
@@ -121,6 +121,7 @@ public class EntregaTest {
     // assert
     Assert.assertFalse(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_comDataDeRetirada() {
     // arrange
@@ -131,6 +132,7 @@ public class EntregaTest {
     // assert
     Assert.assertTrue(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_comMoradorQueRetirou() {
     // arrange
@@ -141,6 +143,7 @@ public class EntregaTest {
     // assert
     Assert.assertTrue(resultado);
   }
+
   @Test
   public void entregaFoiRetirada_ambosRequisitos() {
     // arrange
@@ -152,4 +155,11 @@ public class EntregaTest {
     // assert
     Assert.assertTrue(resultado);
   }
+  
+    @Test
+    public void validarControleUltimoIdEntrega() {
+      Entrega entrega = new Entrega(1, "Teste", new Operador("teste"), 123);
+
+      Assert.assertEquals(2, Entrega.getUProximoIdEntrega());
+    }
 }
