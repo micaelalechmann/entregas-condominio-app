@@ -6,10 +6,12 @@ public class Condominio {
 
     private List<Morador> moradores;
     private List<Entrega> entregas;
+    private List<Operador> operadores;
 
     public Condominio() {
         this.moradores = new ArrayList<>();
         this.entregas = new ArrayList<>();
+        this.operadores = new ArrayList<>();
     }
 
     public List<Entrega> buscaEntregasPelaDescricao(String descricao) {
@@ -26,6 +28,14 @@ public class Condominio {
 
     public boolean cadastrarEntrega(Entrega entrega) {
         return this.entregas.add(entrega);
+    }
+
+    public void cadastrarOperador(Operador novoOperador) {
+        operadores.add(novoOperador);
+    }
+
+    public List<Operador> getOperadores() {
+        return this.operadores;
     }
 
      public List<Entrega> buscaEntregasNaoRetiradas (){

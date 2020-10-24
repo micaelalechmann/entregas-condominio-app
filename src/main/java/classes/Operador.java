@@ -7,6 +7,10 @@ public class Operador {
     this.nome = nome;
   }
 
+  public String getNome() {
+    return this.nome;
+  }
+
   @Override
   public String toString() {
     String[] iniciaisNome = nome.split(" ");

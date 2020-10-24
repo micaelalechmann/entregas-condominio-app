@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Menu {
     private Condominio condominio;
+    private Operador operadorAtual;
     private Scanner scanner;
 
     public Menu(Condominio condominio){
@@ -13,12 +14,14 @@ public class Menu {
     }
 
     public void run() {
+        System.out.println("Operador atual: " + (operadorAtual == null ? "Nenhum" : operadorAtual.getNome()));
         System.out.println("-- Menu -- \n");
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
         System.out.println("2 - Listar entregas não retiradas");
         System.out.println("3 - Cadastrar entregas");
-        System.out.println("4 - Cadastrar novo morador");
+        System.out.println("4 - Operadores");
+        System.out.println("5 - Cadastrar novo morador");
 
 
         this.scanner.reset();
@@ -45,6 +48,10 @@ public class Menu {
                 this.run();
                 break;
             case 4:
+                this.menuOperador();
+                this.run();
+                break;
+            case 5:
                 this.cadastrarMorador();
                 this.run();
                 break;
@@ -136,5 +143,56 @@ public class Menu {
         } else {
             System.out.println("Todas as entregas foram retiradas");
         }
+    }
+
+    public void menuOperador() {
+        System.out.println("1 - Cadastrar operador");
+        System.out.println("2 - Selecionar operador");
+        System.out.println("3 - Voltar ");
+
+        this.scanner.reset();
+        int numOpcao = recebeNumero();
+
+        switch (numOpcao){
+            case 1:
+                this.cadastrarOperador();
+                this.menuOperador();
+                break;
+            case 2:
+                this.listarOperadores();
+                this.menuOperador();
+                break;
+            case 3:
+                break;
+            default:
+                System.out.println("Opção inexistente");
+                this.menuOperador();
+                break;
+        }
+    }
+
+    public void cadastrarOperador() {
+        System.out.println("Digite o nome do operador: ");
+        String nomeOperador = this.scanner.nextLine();
+
+        Operador novoOperador = new Operador(nomeOperador);
+
+        condominio.cadastrarOperador(novoOperador);
+
+        System.out.println("Operador cadastrado com sucesso!");
+        this.scanner.reset();
+    }
+
+    public void listarOperadores() {
+        System.out.println("Listando todos os operadores...");
+
+        for (int i = 0; i < condominio.getOperadores().size(); i++)
+            System.out.println((i + 1) + " - " + condominio.getOperadores().get(i).getNome());
+
+        System.out.println("\nSelecione um operador: ");
+        int indiceOperador = recebeNumero();
+
+        operadorAtual = condominio.getOperadores().get(indiceOperador - 1);
+        this.scanner.reset();
     }
 }
