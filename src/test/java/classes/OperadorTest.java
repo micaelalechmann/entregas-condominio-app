@@ -1,6 +1,5 @@
 package classes;
 
-import classes.Operador;
 import org.junit.Assert;
 import org.junit.Test;
 

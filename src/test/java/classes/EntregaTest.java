@@ -1,11 +1,12 @@
 package classes;
 
-import java.time.LocalDateTime;
+import exceptions.EntregaJaFoiRetiradaException;
+import exceptions.NumeroApartamentoDoMoradorQueVaiRetirarInvalidoException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import classes.*;
-import exceptions.*;
+
+import java.time.LocalDateTime;
 
 public class EntregaTest {
   Operador op;
