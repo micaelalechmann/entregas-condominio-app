@@ -1,5 +1,4 @@
-package test.java.classes;
-import main.java.classes.Morador;
+package classes;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
