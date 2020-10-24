@@ -17,7 +17,9 @@ public class Menu {
         System.out.println("0 - Sair");
         System.out.println("1 - Pesquisar entregas por descrição");
         System.out.println("2 - Listar entregas não retiradas");
-        System.out.println("3 - Cadastrar entregas ");
+        System.out.println("3 - Cadastrar entregas");
+        System.out.println("4 - Cadastrar novo morador");
+
 
         this.scanner.reset();
         int numOpcao = recebeNumero();
@@ -42,12 +44,31 @@ public class Menu {
                 this.cadastrarEntrega();
                 this.run();
                 break;
+            case 4:
+                this.cadastrarMorador();
+                this.run();
+                break;
 
             default:
                 System.out.println("Opção inexistente");
                 this.run();
                 break;
         }
+    }
+
+    private void cadastrarMorador() {
+        System.out.println("Digite o nome do morador: ");
+        final String nomeOperador = this.scanner.nextLine();
+
+        System.out.println("Digite o RG do morador: ");
+        final String rgMorador = this.scanner.nextLine();
+
+        System.out.println("Digite o número do apartamento: ");
+        final Integer numeroApartamento = recebeNumero();
+
+        final Morador morador = new Morador(nomeOperador, rgMorador, numeroApartamento);
+
+        this.condominio.cadastrarMorador(morador);
     }
 
     private void cadastrarEntrega() {
