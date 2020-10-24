@@ -22,6 +22,7 @@ public class Menu {
         System.out.println("3 - Cadastrar entregas");
         System.out.println("4 - Operadores");
         System.out.println("5 - Cadastrar novo morador");
+        System.out.println("6 - Listar moradores");
 
 
         this.scanner.reset();
@@ -55,7 +56,10 @@ public class Menu {
                 this.cadastrarMorador();
                 this.run();
                 break;
-
+            case 6:
+                this.listarMoradores();
+                this.run();
+                break;
             default:
                 System.out.println("Opção inexistente");
                 this.run();
@@ -142,6 +146,21 @@ public class Menu {
             System.out.println("\n\n");
         } else {
             System.out.println("Todas as entregas foram retiradas");
+        }
+    }
+
+    public void listarMoradores(){
+        List<Morador> moradores = this.condominio.getMoradores();
+
+        System.out.println("-- Moradores:\n");
+
+        if(moradores.size() > 0) {
+            for (Morador morador : moradores) {
+                System.out.println(morador);
+            }
+            System.out.println("\n\n");
+        } else {
+            System.out.println("Nenhum morador cadastrado");
         }
     }
 
