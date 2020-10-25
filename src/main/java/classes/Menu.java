@@ -1,5 +1,10 @@
 package classes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +15,7 @@ public class Menu {
 
     public Menu(Condominio condominio){
         this.condominio = condominio;
+        lerArquivoMorador("src/inputFiles/dadosMorador.csv");
         this.scanner = new Scanner(System.in);
     }
 
@@ -213,5 +219,29 @@ public class Menu {
 
         operadorAtual = condominio.getOperadores().get(indiceOperador - 1);
         this.scanner.reset();
+    }
+
+    public void lerArquivoMorador(String caminho) {
+        try {
+            File arquivo = new File(caminho);
+            Scanner leitor = new Scanner(arquivo);
+
+            leitor.useDelimiter(",");
+            List<Morador> moradores = new ArrayList<>();
+
+            while (leitor.hasNextLine()) {
+                String[] data = leitor.nextLine().split(",");
+                if(data.length == 3) {
+                    moradores.add(new Morador(data[0], data[1], Integer.parseInt(data[2])));
+                }
+            }
+
+            this.condominio.setMoradores(moradores);
+            leitor.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Erro ao ler o arquivo.");
+            e.printStackTrace();
+        }
     }
 }
