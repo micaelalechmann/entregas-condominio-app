@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 
 public class Menu {
     private Condominio condominio;
@@ -198,31 +199,25 @@ public class Menu {
                 this.menuOperador();
                 break;
             case 4:
-                System.out.println("Insira a data inicial do relatorio");
-                System.out.println("Primeiro insira o ano:");
-                int opcao = recebeNumero();
-                System.out.println("O mes:");
-                int opcao2 = recebeNumero();
-                System.out.println("O dia:");
-                int opcao3 = recebeNumero();
-                System.out.println("A hora:");
-                int opcao4 = recebeNumero();
-                System.out.println("Os minutos");
-                int opcao5 = recebeNumero();
-                LocalDateTime dataInicial = LocalDateTime.of(opcao,opcao2,opcao3,opcao4,opcao5);
-                System.out.println("Agora Insira a data final do relatorio");
-                System.out.println("Primeiro insira o ano:");
-                int opcaoo = recebeNumero();
-                System.out.println("O mes:");
-                int opcaoo2 = recebeNumero();
-                System.out.println("O dia:");
-                int opcaoo3 = recebeNumero();
-                System.out.println("A hora:");
-                int opcaoo4 = recebeNumero();
-                System.out.println("Os minutos");
-                int opcaoo5 = recebeNumero();
-                LocalDateTime dataFinal = LocalDateTime.of(opcaoo,opcaoo2,opcaoo3,opcaoo4,opcaoo5);
-                this.gerarRelatorio(dataInicial,dataFinal);
+                Scanner in = new Scanner(System.in);
+                System.out.println("Insira a data inicial do relatorio (dd/MM/yyyy HH:mm)");
+                String pegaDataInicial=in.nextLine().trim();
+                if (pegaDataInicial.length()==16) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                    LocalDateTime dataInicial = LocalDateTime.parse(pegaDataInicial, formatter);
+                    System.out.println("Agora Insira a data final do relatorio (dd/MM/yyyy HH:mm)");
+                    String pegaDataFinal = in.nextLine().trim();
+                    if (pegaDataFinal.length()==16) {
+                        LocalDateTime dataFinal = LocalDateTime.parse(pegaDataFinal, formatter);
+                        this.gerarRelatorio(dataInicial, dataFinal);
+                    }
+                    else {
+                        System.out.println("Data invalida.");
+                    }
+                }
+                else {
+                    System.out.println("Data invalida.");
+                }
                 this.menuOperador();
                 break;
             case 5:
