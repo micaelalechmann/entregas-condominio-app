@@ -4,18 +4,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
+    private GeradorId geradorId;
     private Condominio condominio;
     private Operador operadorAtual;
     private Scanner scanner;
 
     public Menu(Condominio condominio){
         this.condominio = condominio;
-        lerArquivoMorador("src/inputFiles/dadosMorador.csv");
+        instanciaDadosIniciais();
         this.scanner = new Scanner(System.in);
     }
 
@@ -221,7 +223,15 @@ public class Menu {
         this.scanner.reset();
     }
 
-    public void lerArquivoMorador(String caminho) {
+    protected void instanciaDadosIniciais() {
+        geradorId = new GeradorId();
+        lerArquivoMorador("src/inputFiles/dadosMorador.csv");
+        lerArquivoOperador("src/inputFiles/dadosOperador.csv");
+        lerArquivoEntrega("src/inputFiles/dadosEntrega.csv");
+
+    }
+
+    protected void lerArquivoMorador(String caminho) {
         try {
             File arquivo = new File(caminho);
             Scanner leitor = new Scanner(arquivo);
@@ -235,7 +245,6 @@ public class Menu {
                     moradores.add(new Morador(data[0], data[1], Integer.parseInt(data[2])));
                 }
             }
-
             this.condominio.setMoradores(moradores);
             leitor.close();
 
@@ -244,4 +253,61 @@ public class Menu {
             e.printStackTrace();
         }
     }
+
+
+    protected void lerArquivoOperador(String caminho) {
+        try {
+            File arquivo = new File(caminho);
+            Scanner leitor = new Scanner(arquivo);
+
+            while (leitor.hasNextLine()) {
+                String data = leitor.nextLine();
+                if(!data.isEmpty()) {
+                    this.condominio.cadastrarOperador(new Operador(data));
+                }
+            }
+            leitor.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Erro ao ler o arquivo.");
+            e.printStackTrace();
+        }
+    }
+
+    protected void lerArquivoEntrega(String caminho) {
+        try {
+            File arquivo = new File(caminho);
+            Scanner leitor = new Scanner(arquivo);
+
+            leitor.useDelimiter(",");
+            List<Entrega> entregas = new ArrayList<>();
+
+            while (leitor.hasNextLine()) {
+                String[] data = leitor.nextLine().split(",");
+
+                Morador morador = this.condominio.getMoradores().get(0);
+                if(data.length == 4) {
+                    for(Morador moradorDaLista : this.condominio.getMoradores()){
+                        if(moradorDaLista.getNome().equals(data[3])) {
+                            morador = moradorDaLista;
+                        }
+                    }
+                    Entrega entrega = new Entrega(geradorId.getProximoId(), data[0], new Operador(data[1]), Integer.parseInt(data[2]));
+                    entrega.setMoradorQueRetirou(morador);
+                    entrega.setDataRetirada(LocalDateTime.now());
+                    entregas.add(entrega);
+                }
+                else if(data.length == 3) {
+                    entregas.add(new Entrega(geradorId.getProximoId(), data[0], new Operador(data[1]), Integer.parseInt(data[2])));
+                }
+            }
+            this.condominio.setEntregas(entregas);
+            leitor.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Erro ao ler o arquivo.");
+            e.printStackTrace();
+        }
+    }
+
 }
